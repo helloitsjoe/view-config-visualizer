@@ -1,0 +1,455 @@
+configs = {
+    "viewConfig (MenuView)": {
+        "type": { "MenuView": null },
+        "id": { "string": "string" },
+        "title": { "string": "string" },
+        "category (optional)": {
+            "gui (default)": null,
+            "display": null,
+            "eye (rarely used in config)": null
+        },
+        "action (tap - optional)": {
+            "type": { "mimEnd": null }
+        },
+        "ignoreSwipeDown (optional)": { "boolean (default false)": true },
+        "listDefault": {
+            "menuButtonType": {
+                "ActionButton": null,
+                "ActionBigButton": null,
+                "SkillButton": null,
+                "Button": null
+            },
+            "colors" : {
+                "default": null,
+                "confirm": null,
+                "cancel": null,
+                "[ '#lightColor', '#darkColor' ]": null
+            },
+            "iconSrc": { "string (path)": "path/from/project/root/icon.png" }
+        },
+        "list": [
+            {
+                "id": { "string": "string" },
+                "label (optional)": { "string": "string" },
+                "colors (overrides listDefault)" : {
+                    "default": null,
+                    "confirm": null,
+                    "cancel": null,
+                    "[ '#lightColor', '#darkColor' ]": null
+                },
+                "iconSrc (overrides listDefault)": { "string (path)": "path/from/project/root/icon.png" },
+                "action": {
+                    "type": {
+                        "closeView": null,
+                        "changeView": null,
+                        "event": null,
+                        "utterance": null
+                    },
+                    "data (for changeView)": {
+                        "options": {
+                            "remove": { "boolean": true },
+                            "removeAll": { "boolean": true },
+                            "leaveEmpty": { "boolean": true },
+                            "addView (common)": { "view | string (path)": "path/from/project/root/view.json" },
+                            "pause": {
+                                "alpha (% black)": { "number (0-1)": 0.5 }
+                            },
+                            "transitionOpen": {
+                                "trans_in": null,
+                                "trans_out": null,
+                                "trans_up": null,
+                                "trans_down": null
+                            },
+                            "transitionClose": {
+                                "trans_in": null,
+                                "trans_out": null,
+                                "trans_up": null,
+                                "trans_down": null
+                            }
+                        }
+                    },
+                    "data (for event)": {
+                        "event": { "string (actionHandler)": "string" },
+                        "(etc)": { "string (actionHandler)": "string"}
+                    },
+                    "data (for utterance)": {
+                        "utterance": { "string": "utterance" }
+                    }
+                }
+            }
+        ]
+    },
+    "viewConfig (ContactsView)": {
+        "type": { "ContactsView": null },
+        "id": { "string": "string" },
+        "listDefault": {
+            "willToggle": { "boolean": true },
+            "action": {
+                "type": { "closeView": null },
+            }
+        }
+    },
+    "viewConfig (View)": {
+        "type": { "View": null },
+        "id": { "string": "id" },
+        "category (optional)": {
+            "gui (default)": null,
+            "display": null,
+            "eye (rarely used in config)": null
+        },
+        "action (tap - optional)": {
+            "type": { "mimEnd": null}
+        },
+        "ignoreSwipeDown (optional)": { "boolean (default false)": true },
+    },
+    "componentConfigs (for View)": [
+        {
+            "id": { "string": "string" },
+            "type": { "Label": null },
+            "text": { "string": "string"},
+            "style": {
+                "fontSize": { "string (number)": "100" },
+                "fontFamily": { "string": "Proxima Nova Soft" },
+                "fontStyle": { "string": "bold" },
+                "fill": { "string (hexColor)": "#FFFFFF" }
+            },
+            "position": {
+                "x": { "number": 640 },
+                "y": { "number": 100 }
+            },
+            "targetAnchor": {
+                "x": { "number (0-1)": 0.5},
+                "y": { "number (0-1)": "0" }
+            }
+        },
+        {
+            "id": { "string": "string" },
+            "type": { "Clip": null },
+            "assets": [
+                {
+                    "id": { "string": "string" },
+                    "src": { "string (path)": "path/from/project/root/pixiTimeline.js" },
+                    "type": { "timeline": null },
+                    "upload": { "boolean": true }
+                },
+                {
+                    "id": { "string": "string" },
+                    "src": { "string (path)": "path/from/project/root/audio.m4a" },
+                    "type": { "sound": null }
+                }
+            ],
+            "position": {
+                "x": { "number": 640 },
+                "y": { "number": 100 }
+            },
+            "targetAnchor": {
+                "x": { "number (0-1)": 0.5},
+                "y": { "number (0-1)": "0" }
+            }
+        },
+        {
+            "id": { "string": "string"},
+            "type": { "Button": null },
+            "assets":[
+                {
+                    "id": { "string": "string" },
+                    "src": { "string (path)": "path/from/project/root/image.png" },
+                    "type": { "texture": null }
+                }
+            ],
+            "position": {
+                "x": { "number": 640 },
+                "y": { "number": 100 }
+            },
+            "action": {
+                "type": { "closeView": null }
+            }
+        },
+        {
+            "id": { "string": "string"},
+            "type": { "List": null },
+            "elementsPerPage": { "number (default 3)": 3 },
+            "position": {
+                "x": { "number": 0 },
+                "y": { "number": 450 }
+            },
+            "defaultElement": {
+                "type": {
+                    "Button": null,
+                    "Clip": null,
+                },
+                "colors (Button)" : {
+                    "default": null,
+                    "confirm": null,
+                    "cancel": null,
+                    "[ '#lightColor', '#darkColor' ]": null
+                },
+                "action": {
+                    "type": { "closeView": null }
+                }
+            },
+            "componentConfigs": [
+                {
+                    "id": { "string": "string"},
+                    "assets":[
+                        {
+                            "id": { "string": "string"},
+                            "src": { "string": "path/from/project/root/image.png" },
+                            "type": { "texture": null }
+                        }
+                    ]
+                },
+                {
+                    "id": { "string": "string"},
+                    "assets":[
+                        {
+                            "id": { "string": "string"},
+                            "src": { "string": "path/from/project/root/image.png" },
+                            "type": { "texture": null }
+                        }
+                    ]
+                },
+                {
+                    "id": { "string": "string"},
+                    "assets":[
+                        {
+                            "id": { "string": "string"},
+                            "src": { "string": "path/from/project/root/image.png" },
+                            "type": { "texture": null }
+                        }
+                    ]
+                }
+            ]
+        }
+    ],
+    "open": {
+        "remove": { "boolean": true },
+        "removeAll": { "boolean": true },
+        "leaveEmpty": { "boolean": true },
+        "addView": { "view | string (path)": "path/from/project/root/view.json" },
+        "pause": {
+            "alpha (% black)": { "number (0-1)": 0.5 }
+        },
+        "transitionOpen": {
+            "trans_in": null,
+            "trans_out": null,
+            "trans_up": null,
+            "trans_down": null
+        }
+    },
+    "defaultSelect": {
+        "remove": { "boolean": true },
+        "removeAll": { "boolean": true },
+        "leaveEmpty": { "boolean": true },
+        "addView": { "view | string (path)": "path/from/project/root/view.json" },
+        "pause": {
+            "alpha (% black)": { "number (0-1)": 0.5 }
+        },
+        "transitionOpen": {
+            "trans_in": null,
+            "trans_out": null,
+            "trans_up": null,
+            "trans_down": null
+        },
+        "transitionClose": {
+            "trans_in": null,
+            "trans_out": null,
+            "trans_up": null,
+            "trans_down": null
+        }
+    },
+    "defaultClose": {
+        "remove": { "boolean": true },
+        "removeAll": { "boolean": true },
+        "leaveEmpty": { "boolean": true },
+        "addView": { "view | string (path)": "path/from/project/root/view.json" },
+        "pause": {
+            "alpha (% black)": { "number (0-1)": 0.5 }
+        },
+        "transitionOpen": {
+            "trans_in": null,
+            "trans_out": null,
+            "trans_up": null,
+            "trans_down": null
+        },
+        "transitionClose": {
+            "trans_in": null,
+            "trans_out": null,
+            "trans_up": null,
+            "trans_down": null
+        }
+    }
+}
+
+
+glossary = {
+    "open": {
+        "pause": {
+            "alpha": { "number (0-1)": null }
+        }
+    },
+    "viewConfig": {
+        "type": {
+            "View": null,
+            "MenuView": null,
+            "ContactsView": null,
+            "EyeView": null
+        },
+        "id": { "string": "id" },
+        "title": { "string": "id" },
+        "listDefault": {
+            "menuButtonType": {
+                "ActionButton": null,
+                "ActionBigButton": null,
+                "SkillButton": null,
+                "Button": null
+            },
+            "colors" : {
+                "default": null,
+                "confirm": null,
+                "cancel": null,
+                "[ '#lightColor', '#darkColor' ]": null
+            },
+            "willToggle": { "boolean": true }
+        },
+        "elementDimensions": {
+            "x": { "number": 264 },
+            "y": { "number": 264 }
+        },
+        "elementBuffer": { "number": 150 },
+        "list": [
+            {
+                "label": "Yes",
+                "colors": "confirm",
+                "iconSrc": "jibo://resources/actionIcons/ok.png",
+                "actions": [
+                    {
+                        "type": "utterance",
+                        "data": {
+                            "utterance": "yes"
+                        }
+                    }
+                ]
+            },
+            {
+                "type": "Label"
+            },
+            {
+                "label": "No",
+                "colors": "cancel",
+                "iconSrc": "jibo://resources/actionIcons/cancel.png",
+                "actions": [
+                    {
+                        "type": "utterance",
+                        "data": {
+                            "utterance": "no"
+                        }
+                    }
+                ]
+            }
+        ]
+    }
+}
+
+
+
+
+test = {
+  "viewConfig": {
+    "type": "View",
+    "id": "label_view"
+  },
+  "componentConfigs": [
+    {
+      "id": "label",
+      "type": "Label",
+      "text": "Label Standard",
+      "style": {
+        "fontSize": "60px",
+        "fontFamily": "Proxima Nova Soft",
+        "fontStyle": "bold",
+        "fill": "#FFFFFF"
+      },
+      "position": {
+        "x": "640",
+        "y": "200.5"
+      }
+    },
+    {
+      "id": "label2",
+      "type": "Label",
+      "text": "Label Anchored",
+      "style": {
+        "fontSize": "60",
+        "fontFamily": "Proxima Nova Soft",
+        "fontStyle": "bold",
+        "fill": "#FFFFFF"
+      },
+      "position": {
+        "x": "640",
+        "y": "200.5"
+      },
+      "targetAnchor": {
+        "x": "0.5",
+        "y": "0.5"
+      }
+    },
+    {
+      "id": "label3",
+      "type": "Label",
+      "text": "Numeric Values",
+      "style": {
+        "fontSize": 60,
+        "fontFamily": "Proxima Nova Soft",
+        "fontStyle": "bold",
+        "fill": "#FFFFFF"
+      },
+      "position": {
+        "x": 640,
+        "y": 400.5
+      },
+      "targetAnchor": {
+        "x": 0.5,
+        "y": 0.5
+      }
+    },
+    {
+      "id": "label4",
+      "type": "Label",
+      "text": "String Values",
+      "style": {
+        "fontSize": "60",
+        "fontFamily": "Proxima Nova Soft",
+        "fontStyle": "bold",
+        "fill": "#FFFFFF"
+      },
+      "position": {
+        "x": "640",
+        "y": "500.5"
+      },
+      "targetAnchor": {
+        "x": "0.5",
+        "y": "0.5"
+      }
+    },
+    {
+      "id": "label5",
+      "type": "Label",
+      "text": "String w/ Suffix",
+      "style": {
+        "fontSize": "60px",
+        "fontFamily": "Proxima Nova Soft",
+        "fontStyle": "bold",
+        "fill": "#FFFFFF"
+      },
+      "position": {
+        "x": "640",
+        "y": "600.5"
+      },
+      "targetAnchor": {
+        "x": "0.5",
+        "y": "0.5"
+      }
+    }
+  ]
+}
